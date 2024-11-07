@@ -94,7 +94,7 @@
             this.btnUpdate1.Name = "btnUpdate1";
             this.btnUpdate1.Size = new System.Drawing.Size(91, 27);
             this.btnUpdate1.TabIndex = 11;
-            this.btnUpdate1.Text = "Update";
+            this.btnUpdate1.Text = "Delete";
             this.btnUpdate1.UseVisualStyleBackColor = true;
             // 
             // btncBack
