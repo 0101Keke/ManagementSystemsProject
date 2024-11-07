@@ -50,5 +50,10 @@ namespace ManagementSystemsProject
             frmAdd add = new frmAdd();
             add.Show();
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

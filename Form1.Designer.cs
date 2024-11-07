@@ -128,6 +128,7 @@
             this.btnView.TabIndex = 3;
             this.btnView.Text = "View All Students";
             this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // btnAdd
             // 

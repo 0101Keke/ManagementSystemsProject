@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnBack2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,11 +43,22 @@
             this.dataGridView3.Size = new System.Drawing.Size(794, 396);
             this.dataGridView3.TabIndex = 2;
             // 
+            // btnBack2
+            // 
+            this.btnBack2.Location = new System.Drawing.Point(12, 416);
+            this.btnBack2.Name = "btnBack2";
+            this.btnBack2.Size = new System.Drawing.Size(121, 23);
+            this.btnBack2.TabIndex = 3;
+            this.btnBack2.Text = "Back";
+            this.btnBack2.UseVisualStyleBackColor = true;
+            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
+            // 
             // ViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 451);
+            this.Controls.Add(this.btnBack2);
             this.Controls.Add(this.dataGridView3);
             this.Name = "ViewForm";
             this.Text = "ViewForm";
@@ -58,5 +70,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Button btnBack2;
     }
 }

@@ -16,5 +16,11 @@ namespace ManagementSystemsProject
         {
             InitializeComponent();
         }
+
+        private void btnBack2_Click(object sender, EventArgs e)
+        {
+            frmMain main = new frmMain();
+            main.Show();
+        }
     }
 }
