@@ -161,6 +161,10 @@
             this.txtID.TabIndex = 0;
             this.toolTip1.SetToolTip(this.txtID, "The maximum length od a Student ID is 6");
             // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // frmAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
