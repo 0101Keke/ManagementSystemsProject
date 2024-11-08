@@ -68,7 +68,7 @@ namespace ManagementSystemsProject.DataLayer
             }
             catch (FormatException ex)
             {
-                Console.WriteLine("An error occured while calculating the average age: " + ex.Message)
+                Console.WriteLine("An error occured while calculating the average age: " + ex.Message);
                 return 0; 
             }
             catch (Exception ex)
