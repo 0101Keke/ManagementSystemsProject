@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementSystemsProject.DataLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,38 @@ namespace ManagementSystemsProject.Forms
         public GenerateForm()
         {
             InitializeComponent();
+        }
+
+        private void btnTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ReportSummary summary = new ReportSummary("[StudentTextFile]");
+
+                int totalStudents = summary.TotalStudents();
+                dgvTotal.Rows.Add("TotalStudents", totalStudents);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error occured: " + ex.Message);
+            }
+        }
+
+        private void btnAvgAge_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ReportSummary summary = new ReportSummary("[StudentTextFile]");
+
+                dgvAverage.Rows.Clear();
+
+                double avgAge = summary.AvgAge();
+                dgvAverage.Rows.Add("Average age", avgAge.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error occured: " + ex.Message);
+            }
         }
     }
 }
