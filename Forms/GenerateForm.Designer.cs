@@ -47,6 +47,7 @@
             this.dgvTotal.RowTemplate.Height = 24;
             this.dgvTotal.Size = new System.Drawing.Size(376, 322);
             this.dgvTotal.TabIndex = 3;
+            this.dgvTotal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTotal_CellContentClick);
             // 
             // btnBack2
             // 
@@ -56,6 +57,7 @@
             this.btnBack2.TabIndex = 4;
             this.btnBack2.Text = "Back";
             this.btnBack2.UseVisualStyleBackColor = true;
+            this.btnBack2.Click += new System.EventHandler(this.btnBack2_Click);
             // 
             // button1
             // 
@@ -65,6 +67,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dgvAverage
             // 
@@ -94,6 +97,7 @@
             this.btnAvgAge.TabIndex = 8;
             this.btnAvgAge.Text = "Average Age";
             this.btnAvgAge.UseVisualStyleBackColor = true;
+            this.btnAvgAge.Click += new System.EventHandler(this.btnAvgAge_Click_1);
             // 
             // GenerateForm
             // 
