@@ -57,7 +57,7 @@
             this.lblStudentMS.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStudentMS.Location = new System.Drawing.Point(121, 19);
             this.lblStudentMS.Name = "lblStudentMS";
-            this.lblStudentMS.Size = new System.Drawing.Size(710, 58);
+            this.lblStudentMS.Size = new System.Drawing.Size(568, 46);
             this.lblStudentMS.TabIndex = 0;
             this.lblStudentMS.Text = "Student Management System";
             this.lblStudentMS.Click += new System.EventHandler(this.label1_Click);
@@ -118,6 +118,7 @@
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Update Student Information";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnView
             // 
@@ -143,7 +144,7 @@
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 713);
             this.Controls.Add(this.pnlCore);

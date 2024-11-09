@@ -58,5 +58,11 @@ namespace ManagementSystemsProject
         {
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateForm update = new UpdateForm();
+            update.Show();
+        }
     }
 }
