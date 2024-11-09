@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using ManagementSystemsProject.Forms;
 
 namespace ManagementSystemsProject
 {
@@ -32,7 +34,8 @@ namespace ManagementSystemsProject
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            Delete delete = new Delete();
+            delete.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
