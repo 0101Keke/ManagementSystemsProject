@@ -71,9 +71,9 @@ namespace ManagementSystemsProject.DataLayer
                 {
                     if(string.IsNullOrWhiteSpace(line)) continue;
 
-                    string[] parts = line.Split(' ');
+                    string[] parts = line.Split(',');
 
-                    if (parts.Length < 3 || !int.TryParse(parts[1], out int age))
+                    if (parts.Length < 4 || !int.TryParse(parts[2], out int age))
                     {
                         Console.WriteLine("Skipping line: " + line);
                         continue;
