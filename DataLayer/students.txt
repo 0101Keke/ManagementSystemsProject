@@ -1,1 +1,8 @@
-﻿
+﻿101,John Doe,20,Computer Science
+102,Jane,29,Mathematics
+104,Alice Green,22,Computer Science
+105,Charlie White,23,Mathematics
+106,Linda Black,19,Biology
+107,Tom Harris,27,Engineering
+109,David Adams,21,Chemistry
+110,Emma Watson,20,Computer Science
