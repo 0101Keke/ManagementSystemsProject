@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementSystemsProject.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -54,6 +55,12 @@ namespace ManagementSystemsProject
         private void btnView_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGenerate_Click_1(object sender, EventArgs e)
+        {
+            GenerateForm generate = new GenerateForm();
+            generate.Show();
         }
     }
 }

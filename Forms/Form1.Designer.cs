@@ -97,6 +97,7 @@
             this.btnGenerate.TabIndex = 6;
             this.btnGenerate.Text = "Generate a Summary Report";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click_1);
             // 
             // btnDelete
             // 

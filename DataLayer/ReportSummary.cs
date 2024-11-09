@@ -5,38 +5,57 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using ManagementSystemsProject.Forms;
+using ManagementSystemsProject.DataLayer;
+using System.IO.Ports;
 
 namespace ManagementSystemsProject.DataLayer
 {
     public class ReportSummary
     {
-        private readonly string filepath;
+        private string path;
 
-        public ReportSummary(string filepath)
+        public ReportSummary(string path = @"C:\Users\A\source\repos\ManagementSystemsProject\DataLayer\students.txt")
         {
-            this.filepath = filepath;
+            this.path = path;
+            FileExists();
+        }
+
+        private void FileExists()
+        {
+            try
+            {
+                string directoryPath = Path.GetDirectoryName(path);
+                if (Directory.Exists(directoryPath))
+                {
+                    Directory.CreateDirectory(directoryPath);
+                }
+                if (!File.Exists(path))
+                {
+                    Console.WriteLine("File does not exist. New one will be created.");
+                    File.Create(path).Close();
+
+                    File.WriteAllText(path, "StudentID, Name, Age, Course");
+                }
+            } 
+            catch (Exception ex) 
+            {
+                Console.WriteLine("Error creating file: " + ex.Message);
+            }
         }
 
         public int TotalStudents()
         {
             try
             {
-                if (!File.Exists(filepath))
-                {
-                    throw new FileNotFoundException("The student file was not found.");
-                }
-
-                var lines = File.ReadAllLines(filepath);
+                string[] lines = File.ReadAllLines(path).Skip(1).ToArray();
                 return lines.Length;
             }
-            catch (FileNotFoundException ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Error calculating total number of students: " + ex.Message);
                 return 0;
-            }
-            catch(Exception ex) 
-            { 
-                return 0; 
+
             }
         }
 
@@ -44,36 +63,29 @@ namespace ManagementSystemsProject.DataLayer
         {
             try
             {
-                if (!File.Exists(filepath))
-                {
-                    throw new FileNotFoundException("The student file was not found.");
-                }
+                string[] lines = File.ReadAllLines (path).Skip(1).ToArray();
 
-                string ages = File.ReadAllLines(filepath).Select(line =>
+                List<int> ages = new List<int>();
+
+                foreach (string line in lines)
                 {
-                    var parts = line.Split(',');
-                    if (parts.Length < 3 || !int.TryParse(parts[2], out int age))
+                    if(string.IsNullOrWhiteSpace(line)) continue;
+
+                    string[] parts = line.Split(' ');
+
+                    if (parts.Length < 3 || !int.TryParse(parts[1], out int age))
                     {
-                        throw new FormatException("Invalid data format for age.")
+                        Console.WriteLine("Skipping line: " + line);
+                        continue;
                     }
-                    return age;
-                }).ToList();
+                    ages.Add(age);
+                }
 
                 return ages.Any() ? ages.Average() : 0;
             }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return 0;
-            }
             catch (FormatException ex)
             {
-                Console.WriteLine("An error occured while calculating the average age: " + ex.Message);
-                return 0; 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occured while calculating the average age: " + ex.Message);
+                Console.WriteLine("An error occurred while calculating the average age: " + ex.Message);
                 return 0;
             }
         }
