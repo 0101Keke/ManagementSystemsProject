@@ -37,18 +37,20 @@
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView3.Location = new System.Drawing.Point(9, 10);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(794, 396);
+            this.dataGridView3.Size = new System.Drawing.Size(596, 322);
             this.dataGridView3.TabIndex = 2;
             // 
             // btnBack2
             // 
-            this.btnBack2.Location = new System.Drawing.Point(12, 416);
+            this.btnBack2.Location = new System.Drawing.Point(9, 338);
+            this.btnBack2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack2.Name = "btnBack2";
-            this.btnBack2.Size = new System.Drawing.Size(121, 38);
+            this.btnBack2.Size = new System.Drawing.Size(91, 31);
             this.btnBack2.TabIndex = 3;
             this.btnBack2.Text = "Back";
             this.btnBack2.UseVisualStyleBackColor = true;
@@ -56,23 +58,26 @@
             // 
             // btnExit1
             // 
-            this.btnExit1.Location = new System.Drawing.Point(681, 416);
+            this.btnExit1.Location = new System.Drawing.Point(511, 338);
+            this.btnExit1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit1.Name = "btnExit1";
-            this.btnExit1.Size = new System.Drawing.Size(125, 38);
+            this.btnExit1.Size = new System.Drawing.Size(94, 31);
             this.btnExit1.TabIndex = 4;
             this.btnExit1.Text = "Exit";
             this.btnExit1.UseVisualStyleBackColor = true;
             // 
             // ViewForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 466);
+            this.ClientSize = new System.Drawing.Size(614, 379);
             this.Controls.Add(this.btnExit1);
             this.Controls.Add(this.btnBack2);
             this.Controls.Add(this.dataGridView3);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewForm";
             this.Text = "ViewForm";
+            this.Load += new System.EventHandler(this.ViewForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 

@@ -57,6 +57,8 @@ namespace ManagementSystemsProject
 
         private void btnView_Click(object sender, EventArgs e)
         {
+            ViewForm viewForm = new ViewForm();
+            viewForm.Show();
 
         }
 
