@@ -19,7 +19,7 @@ namespace ManagementSystemsProject.DataLayer
 
         // "C:\\Users\\{Your windows username}\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
 
-        public static readonly string filePath = "C:\\Users\\user1\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
+        public static readonly string filePath = "C:\\Users\\kekel\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
 
         public void AddStudent(Student student) 
         {
@@ -186,6 +186,8 @@ namespace ManagementSystemsProject.DataLayer
             return table;
         }
 
+       
+
         public static void UpdateStudent(Student updatedStudent)
         {
             if (!File.Exists(filePath)) throw new FileNotFoundException("The students.txt file was not found.");
@@ -224,6 +226,42 @@ namespace ManagementSystemsProject.DataLayer
             }
 
             return false; // No duplicate found
+        }
+
+        public static DataTable SearchStudent(int id)
+        {
+            DataTable table = new DataTable();
+
+            if (!File.Exists(filePath)) throw new FileNotFoundException("The students.txt file was not found.");
+
+            var lines = File.ReadAllLines(filePath);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                var parts = lines[i].Split(',');
+                if (int.Parse(parts[0]) == id)
+                {
+                    // Update line with new student details
+                    //lines[i] = $"{updatedStudent.StudentID},{updatedStudent.Name},{updatedStudent.Age},{updatedStudent.Course}";
+                    // break;
+
+                    table.Columns.Add("StudentID", typeof(int));
+                    table.Columns.Add("Name", typeof(string));
+                    table.Columns.Add("Age", typeof(int));
+                    table.Columns.Add("Course", typeof(string));
+
+                    DataRow row = table.NewRow();
+                    row["StudentID"] = int.Parse(parts[0].Trim());
+                    row["Name"] = parts[1].Trim();
+                    row["Age"] = int.Parse(parts[2].Trim());
+                    row["Course"] = parts[3].Trim();
+
+                    table.Rows.Add(row);
+
+
+                }
+            }
+
+            return table;
         }
     }
 }

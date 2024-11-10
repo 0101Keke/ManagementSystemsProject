@@ -80,6 +80,12 @@ namespace ManagementSystemsProject.Forms
             main.Show();
             this.Close();  // closes tab
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(textBox1.Text);
+            dataGridView1.DataSource = FileHandler.SearchStudent(id);
+        }
     }
     
 }
