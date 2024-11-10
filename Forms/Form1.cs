@@ -64,5 +64,11 @@ namespace ManagementSystemsProject
             UpdateForm update = new UpdateForm();
             update.Show();
         }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            GenerateForm generate = new GenerateForm();
+            generate.Show();
+        }
     }
 }
