@@ -19,10 +19,25 @@ namespace ManagementSystemsProject.DataLayer
 
         // "C:\\Users\\{Your windows username}\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
 
-        public static readonly string filePath = "C:\\Users\\kekel\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
+        public static readonly string filePath = "C:\\Users\\user1\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
 
         public void AddStudent(Student student) 
         {
+            //Error Handling Section
+            if (student.Age <= 0)
+            {
+                MessageBox.Show("Invalid age. Please enter a positive number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Check for duplicate StudentID
+            if (IsStudentIdDuplicate(student.StudentID))
+            {
+                MessageBox.Show("A student with this ID already exists. Please use a unique Student ID.", "Duplicate ID", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Proceed to add the student
             FileStream fs = new FileStream(filePath, FileMode.Append);
             StreamWriter sw = new StreamWriter(fs);
 
@@ -31,6 +46,8 @@ namespace ManagementSystemsProject.DataLayer
 
             sw.Close();
             fs.Close();
+
+
 
 
             try
@@ -117,6 +134,26 @@ namespace ManagementSystemsProject.DataLayer
 
             // Write updated data back to the file
             File.WriteAllLines(filePath, lines);
+        }
+
+        private bool IsStudentIdDuplicate(int studentId)
+        {
+            if (!File.Exists(filePath))
+            {
+                return false; // No file exists yet, so no duplicates are possible
+            }
+
+            var lines = File.ReadAllLines(filePath);
+            foreach (var line in lines)
+            {
+                var parts = line.Split(',');
+                if (parts.Length > 0 && int.TryParse(parts[0], out int existingId) && existingId == studentId)
+                {
+                    return true; // Duplicate found
+                }
+            }
+
+            return false; // No duplicate found
         }
     }
 }
