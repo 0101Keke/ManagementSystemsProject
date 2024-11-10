@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementSystemsProject.DataLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,10 +18,26 @@ namespace ManagementSystemsProject
             InitializeComponent();
         }
 
-        private void btnBack2_Click(object sender, EventArgs e)
+        private void LoadStudentData()
         {
-            frmMain main = new frmMain();
-            main.Show();
+            try
+            {
+                List<Student> students = FileHandler.GetAllStudents();
+                dataGridView3.DataSource = students;  // Bind the list of students to the DataGridView
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+            private void btnBack2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ViewForm_Load(object sender, EventArgs e)
+        {
+            LoadStudentData();
         }
     }
 }
