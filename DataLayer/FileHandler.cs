@@ -70,16 +70,24 @@ namespace ManagementSystemsProject.DataLayer
         }*/
 
 
-        public static void ViewStudent()
+        public static DataTable ViewStudent()
         {
+            DataTable table = new DataTable();
+
+            table.Columns.Add("StudentID", typeof(int));
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Age", typeof(int));
+            table.Columns.Add("Course", typeof(string));
+
+           // dataGridView3.DataSource = table;
+
+
             if (File.Exists(filePath))
             {
 
-                DataTable table = new DataTable();
+                //string[] lines = File.ReadAllLines(filePath);
 
-                string[] lines = File.ReadAllLines(filePath); 
-
-                string[] values;
+                /*string[] values;
 
                 for (int i = 0; i < lines.Length; i++)
                 {
@@ -91,12 +99,74 @@ namespace ManagementSystemsProject.DataLayer
                         row[j] = values[j].Trim();
                     }
                     table.Rows.Add(row);
+                }*/
+                /*foreach (string line in lines)
+                {
+                    string[] values = line.Split(',');
+
+                    if (values.Length == table.Columns.Count)
+                    {
+                        DataRow row = table.NewRow();
+
+                        for(int j = 0; j< values.Length; j++)
+                        {
+                            row[j] = values[j].Trim();
+                        }
+                        table.Rows.Add(row);
+                    }
+                }*/
+                FileStream fs = new FileStream(filePath, FileMode.Open);
+
+                StreamReader sr = new StreamReader(fs);
+                string line;
+
+                while((line = sr.ReadLine()) != null)
+                {
+                    /*string id = line.Substring(0, line.IndexOf(",")-1);
+                    line.Remove(0, line.IndexOf(","));
+
+                    string name = line.Substring(0, line.IndexOf(",") - 1);
+                    line.Remove(0, line.IndexOf(","));
+
+                    string age = line.Substring(0, line.IndexOf(",") - 1);
+                    line.Remove(0, line.IndexOf(","));
+
+                    string course = line;
+
+                    DataRow dr = table.NewRow();
+
+                    for(int i = 0; i < 4; i++)
+                    {
+                        dr
+                    }*/
+
+                    string[] fields = line.Split(',');
+
+                    if (fields.Length == 4)
+                    {
+                        DataRow row = table.NewRow();
+                        row["StudentID"] = int.Parse(fields[0].Trim());
+                        row["Name"] = fields[1].Trim();
+                        row["Age"] = int.Parse(fields[2].Trim());
+                        row["Course"] = fields[3].Trim();
+
+                        table.Rows.Add(row);
+                    }
+
+
+                    
+
                 }
+                sr.Close();
+                fs.Close();
+
             }
             else
             {
                 throw new FileNotFoundException("The students.txt file was not found.");
             }
+
+            return table;
         }
 
         public static void UpdateStudent(Student updatedStudent)

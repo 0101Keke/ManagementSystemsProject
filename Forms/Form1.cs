@@ -60,7 +60,8 @@ namespace ManagementSystemsProject
         {
             ViewForm viewForm = new ViewForm();
             viewForm.Show();
-            
+
+            FileHandler.ViewStudent();
             
            
         }

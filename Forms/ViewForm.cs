@@ -13,6 +13,7 @@ namespace ManagementSystemsProject
 {
     public partial class ViewForm : Form
     {
+
         public ViewForm()
         {
             InitializeComponent();
@@ -39,14 +40,13 @@ namespace ManagementSystemsProject
         private void ViewForm_Load(object sender, EventArgs e)
         {
             //LoadStudentData();
-            table.Columns.Add("StudentID", typeof(int));
+            /*table.Columns.Add("StudentID", typeof(int));
             table.Columns.Add("Name", typeof(string));
             table.Columns.Add("Age", typeof(int));
-            table.Columns.Add("Course", typeof(string));
+            table.Columns.Add("Course", typeof(string));*/
 
-            dataGridView3.DataSource = table;
+            dataGridView3.DataSource = FileHandler.ViewStudent();
 
-            FileHandler.ViewStudent();
 
         }
 
