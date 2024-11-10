@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Security.Cryptography.X509Certificates;
+using System.Data;
 
 
 namespace ManagementSystemsProject.DataLayer
@@ -18,11 +19,11 @@ namespace ManagementSystemsProject.DataLayer
 
         // "C:\\Users\\{Your windows username}\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
 
-        public static readonly string filePath = "C:\\Users\\user1\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
+        public static readonly string filePath = "C:\\Users\\kekel\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
 
-        public void AddStudent(Student student, string Path) 
+        public void AddStudent(Student student) 
         {
-            FileStream fs = new FileStream(Path, FileMode.OpenOrCreate);
+            FileStream fs = new FileStream(filePath, FileMode.Append);
             StreamWriter sw = new StreamWriter(fs);
 
 
@@ -42,7 +43,7 @@ namespace ManagementSystemsProject.DataLayer
             }  
         }
 
-        public static List<Student> GetAllStudents()
+        /*public static List<Student> GetAllStudents()
         {
             var students = new List<Student>();
 
@@ -66,6 +67,36 @@ namespace ManagementSystemsProject.DataLayer
             }
 
             return students;
+        }*/
+
+
+        public static void ViewStudent()
+        {
+            if (File.Exists(filePath))
+            {
+
+                DataTable table = new DataTable();
+
+                string[] lines = File.ReadAllLines(filePath); 
+
+                string[] values;
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    values = lines[i].ToString().Split(',');
+                    string[] row = new string[values.Length];
+
+                    for (int j = 0; j < values.Length; j++)
+                    {
+                        row[j] = values[j].Trim();
+                    }
+                    table.Rows.Add(row);
+                }
+            }
+            else
+            {
+                throw new FileNotFoundException("The students.txt file was not found.");
+            }
         }
 
         public static void UpdateStudent(Student updatedStudent)

@@ -18,7 +18,7 @@ namespace ManagementSystemsProject
             InitializeComponent();
         }
 
-        private void LoadStudentData()
+        /*private void LoadStudentData()
         {
             try
             {
@@ -29,15 +29,30 @@ namespace ManagementSystemsProject
             {
 
             }
-        }
+        }*/
             private void btnBack2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        DataTable table = new DataTable();
         private void ViewForm_Load(object sender, EventArgs e)
         {
-            LoadStudentData();
+            //LoadStudentData();
+            table.Columns.Add("StudentID", typeof(int));
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Age", typeof(int));
+            table.Columns.Add("Course", typeof(string));
+
+            dataGridView3.DataSource = table;
+
+            FileHandler.ViewStudent();
+
+        }
+
+        private void btnExit1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

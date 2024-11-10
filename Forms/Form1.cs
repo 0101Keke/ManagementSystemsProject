@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using ManagementSystemsProject.Forms;
+using ManagementSystemsProject.DataLayer;
 
 namespace ManagementSystemsProject
 {
     public partial class frmMain : Form
     {
-
+        FileHandler handler = new FileHandler();
         
         public frmMain()
         {
@@ -59,7 +60,9 @@ namespace ManagementSystemsProject
         {
             ViewForm viewForm = new ViewForm();
             viewForm.Show();
-
+            
+            
+           
         }
 
         private void btnGenerate_Click_1(object sender, EventArgs e)

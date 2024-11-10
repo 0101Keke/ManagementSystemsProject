@@ -14,7 +14,7 @@ namespace ManagementSystemsProject
 {
     public partial class frmAdd : Form
     {
-        string path = @"C:\\Users\\user1\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
+       
 
         FileHandler handler = new FileHandler();
         
@@ -55,7 +55,7 @@ namespace ManagementSystemsProject
 
             Student student = new Student(StudentID, Name, Age, Course);
 
-            handler.AddStudent(student, path);
+            handler.AddStudent(student);
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)

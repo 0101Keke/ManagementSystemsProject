@@ -18,11 +18,11 @@ namespace ManagementSystemsProject
             InitializeComponent();
         }
 
-        private void LoadStudentData()
+       /* private void LoadStudentData()
         {
             List<Student> students = FileHandler.GetAllStudents();
             dataGridView1.DataSource = students;  // Bind student list to the DataGridView
-        }
+        }*/
 
 
         // Event handler: Load selected student details into text boxes
@@ -54,7 +54,8 @@ namespace ManagementSystemsProject
                 FileHandler.UpdateStudent(updatedStudent);
 
                 // Refresh DataGridView with updated data
-                LoadStudentData();
+                //LoadStudentData();
+                FileHandler.ViewStudent();
                 MessageBox.Show("Student details updated successfully.", "Update Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -72,7 +73,8 @@ namespace ManagementSystemsProject
 
         private void UpdateForm_Load_1(object sender, EventArgs e)
         {
-            LoadStudentData();
+            //LoadStudentData();
+            FileHandler.ViewStudent();
             ConfigureDataGridView();
         }
     }
