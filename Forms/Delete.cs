@@ -15,7 +15,7 @@ namespace ManagementSystemsProject.Forms
     public partial class Delete : Form
     {
 
-        private string filepath = @"students.txt";
+        public static readonly string filepath = "C:\\Users\\user1\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
         public Delete()
         {
             InitializeComponent();

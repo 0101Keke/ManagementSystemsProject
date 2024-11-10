@@ -55,7 +55,7 @@
             // 
             this.lblStudentMS.AutoSize = true;
             this.lblStudentMS.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudentMS.Location = new System.Drawing.Point(121, 19);
+            this.lblStudentMS.Location = new System.Drawing.Point(196, 30);
             this.lblStudentMS.Name = "lblStudentMS";
             this.lblStudentMS.Size = new System.Drawing.Size(568, 46);
             this.lblStudentMS.TabIndex = 0;
@@ -91,9 +91,9 @@
             // btnGenerate
             // 
             this.btnGenerate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Location = new System.Drawing.Point(99, 278);
+            this.btnGenerate.Location = new System.Drawing.Point(154, 278);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(511, 41);
+            this.btnGenerate.Size = new System.Drawing.Size(386, 41);
             this.btnGenerate.TabIndex = 6;
             this.btnGenerate.Text = "Generate a Summary Report";
             this.btnGenerate.UseVisualStyleBackColor = true;
@@ -113,9 +113,9 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(99, 161);
+            this.btnUpdate.Location = new System.Drawing.Point(154, 161);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(511, 39);
+            this.btnUpdate.Size = new System.Drawing.Size(386, 39);
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Update Student Information";
             this.btnUpdate.UseVisualStyleBackColor = true;

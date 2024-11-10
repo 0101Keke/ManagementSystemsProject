@@ -14,7 +14,8 @@ namespace ManagementSystemsProject
 {
     public partial class frmAdd : Form
     {
-        string path = @"C:\Users\kekel\OneDrive\Desktop\Project\students.txt";
+        string path = @"C:\\Users\\user1\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
+
         FileHandler handler = new FileHandler();
         
 

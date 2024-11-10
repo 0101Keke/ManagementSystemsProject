@@ -16,6 +16,8 @@ namespace ManagementSystemsProject.DataLayer
         public FileHandler() 
         {}
 
+        // "C:\\Users\\{Your windows username}\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
+
         public static readonly string filePath = "C:\\Users\\user1\\source\\repos\\ManagementSystemsProject\\DataLayer\\students.txt";
 
         public void AddStudent(Student student, string Path) 
